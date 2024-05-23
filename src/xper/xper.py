@@ -11,9 +11,12 @@ def do_xper(srcdir, dstdir, color, force, **kwargs):
 
     # create destination dir
     dstpath = Path(dstdir)
-    dstpath.mkdir(parents=True, exist_ok=force)
-
     srcpath = Path(srcdir)
+
+    if dstpath.samefile(srcpath):
+        raise argparse.ArgumentTypeError("src and dst can't be same")
+
+    dstpath.mkdir(parents=True, exist_ok=force)
     walk(xper, dstpath, srcpath)
 
 def iscolor(arg_value):
