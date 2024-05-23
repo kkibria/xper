@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "xper"
+version = "0.1.0"
+description = ""
+authors = ["Khan Kibria <khan.kibria@gmail.com>"]
+readme = "README.md"
+packages = [{include = "xper", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pillow = "^10.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+xper = 'xper.xper:main'
