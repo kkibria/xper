@@ -3,7 +3,8 @@ import sys
 import re
 from pathlib import Path
 from warnings import warn
-from xper.add_alpha import color2RGB, convertImage
+from xper.add_alpha import color2RGB
+from xper.walk import walk
 
 def do_xper(srcdir, dstdir, color, force, **kwargs):
     xper = color2RGB(color)
@@ -13,11 +14,7 @@ def do_xper(srcdir, dstdir, color, force, **kwargs):
     dstpath.mkdir(parents=True, exist_ok=force)
 
     srcpath = Path(srcdir)
-    pat=re.compile(r"^\.(jpg|jpeg|png)$")
-    for fpath in srcpath.iterdir():
-        if pat.match(fpath.suffix):
-            outpath = dstpath.joinpath(fpath.stem + ".png")
-            convertImage(fpath, xper, outpath)
+    walk(xper, dstpath, srcpath)
 
 def iscolor(arg_value):
     pat=re.compile(r"^([0-9a-fA-F]{2}){3}$")
