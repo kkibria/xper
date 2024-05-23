@@ -9,7 +9,6 @@ def walk(xper, dstpath:Path, srcpath:Path):
             ch_srcpath = srcpath.joinpath(fpath.name)
             ch_dstpath = dstpath.joinpath(fpath.name)
             ch_dstpath.mkdir(parents=True, exist_ok=True)
-            # print(ch_srcpath, ch_dstpath)
             walk(xper, ch_dstpath, ch_srcpath)
         else:
             if pat.match(fpath.suffix):
