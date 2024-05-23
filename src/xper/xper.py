@@ -39,9 +39,9 @@ def main():
         description='Creates python command file',
         epilog=f'python -m {params["app"]}')
 
-    parser.add_argument('-s', '--srcdir', type=issrc)
-    parser.add_argument('-d', '--dstdir')
-    parser.add_argument('-c', '--color', type=iscolor, help="RGB value in 6 hex digits, ex. AB140C")
+    parser.add_argument('-s', '--srcdir', type=issrc, required=True)
+    parser.add_argument('-d', '--dstdir', required=True)
+    parser.add_argument('-c', '--color', type=iscolor, required=True, help="RGB value in 6 hex digits, ex. AB140C")
     parser.add_argument('-f', '--force', default=False,
                     action='store_true')
 

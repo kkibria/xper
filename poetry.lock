@@ -88,5 +88,5 @@ xmp = ["defusedxml"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = ">=3.10,<3.13"
-content-hash = "f7709160b7cde4006165884617f8d118500470fcd09768f35832e4ddf7665f06"
+python-versions = "^3.10"
+content-hash = "8ccc4e8768270aa1ab2c3c2418a9ac851fffa1a19a16db715017a0b10c7ed3b0"

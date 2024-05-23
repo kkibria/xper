@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "xper", from = "src"}]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.13"
+python = "^3.10"
 pillow = "^10.3.0"
 
 [build-system]
