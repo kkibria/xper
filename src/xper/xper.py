@@ -49,11 +49,11 @@ def main():
     params = params | vars(args)
 
     set_warnigs_hook()
-    # try:
-    do_xper(**params)
-    # except Exception as e:
-        # print(f'{e.__class__.__name__}:', *e.args)
-        # return 1
+    try:
+        do_xper(**params)
+    except Exception as e:
+        print(f'{e.__class__.__name__}:', *e.args)
+        return 1
     
     return 0
 
