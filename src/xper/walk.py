@@ -13,5 +13,6 @@ def walk(xper, dstpath:Path, srcpath:Path):
         else:
             if pat.match(fpath.suffix):
                 outpath = dstpath.joinpath(fpath.stem + ".png")
-                print(f'{fpath} -> {outpath}')
-                convertImage(fpath, xper, outpath)
+                if not outpath.exists():
+                    print(f'{fpath} -> {outpath}')
+                    convertImage(fpath, xper, outpath)
