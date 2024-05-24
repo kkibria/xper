@@ -13,8 +13,8 @@ def do_xper(srcdir, dstdir, color, force, **kwargs):
     dstpath = Path(dstdir)
     srcpath = Path(srcdir)
 
-    if dstpath.samefile(srcpath):
-        raise argparse.ArgumentTypeError("src and dst can't be same")
+    # if dstpath.samefile(srcpath):
+    #     raise argparse.ArgumentTypeError("src and dst can't be same")
 
     dstpath.mkdir(parents=True, exist_ok=force)
     walk(xper, dstpath, srcpath)
@@ -49,11 +49,11 @@ def main():
     params = params | vars(args)
 
     set_warnigs_hook()
-    try:
-        do_xper(**params)
-    except Exception as e:
-        print(f'{e.__class__.__name__}:', *e.args)
-        return 1
+    # try:
+    do_xper(**params)
+    # except Exception as e:
+        # print(f'{e.__class__.__name__}:', *e.args)
+        # return 1
     
     return 0
 
